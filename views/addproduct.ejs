@@ -1,0 +1,46 @@
+<%- include layouts/header.ejs %>
+
+	<div class="page-data">
+		<form method="post" action="/product/add">
+			<table cellpadding="11">
+				<tr>
+				<td class="label">Category</td>
+					<td>
+						<select name="categoryid">
+						<% for(var i = 0; i < data.length; i++) { %>
+							<option value = "<%= data[i].categoryid %>" > <%= data[i].name %> </option>
+						<%	} %>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="label">Name</td><td>:<input type="text" name="name" placeholder="ex.mobile" required></td>
+
+				</tr>
+				<tr>
+					<td class="label">Description</td><td>:<input type="text" name="description" placeholder="about product" required></td>
+				</tr>
+				<tr>
+					<td class="label">Price</td><td>:<input type="text" name="price" placeholder="ex. 1000" required></td>
+				</tr>
+				<tr>
+					<td class="label">Quantity</td><td>:<input type="text" name="quantity" placeholder="ex. 5" required></td>
+				</tr>
+				<tr>
+					<td class="label">Image</td><td>:<input type="file" name="image" accept="image/*" required></td>
+				</tr>
+				<tr>
+					<td class="label">Status</td><td>:<input type="checkbox" name="status" value="active" ></td>
+				</tr>
+				<tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelProduct()">
+                    </td>
+                 </tr>
+			</table>
+		</form>
+	</div>
+
+<%- include layouts/footer.ejs %>
